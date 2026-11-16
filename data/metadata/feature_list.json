@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-11-13T04:18:42.677285Z",
+  "script": "05_feature_engineering.py",
+  "target": "soil_moisture_next_day",
+  "features": [
+    "rainfall_mm",
+    "temperature_c",
+    "humidity_pct",
+    "relative_humidity_pct",
+    "rh_computed",
+    "daily_et_estimate_mm",
+    "soil_moisture_lag1",
+    "soil_moisture_lag2",
+    "soil_moisture_ma3",
+    "soil_moisture_ma7",
+    "rainfall_lag1",
+    "rainfall_cum3",
+    "rainfall_cum7",
+    "month",
+    "day_of_year",
+    "season"
+  ],
+  "n_features": 16,
+  "feature_descriptions": {
+    "rainfall_mm": "Daily rainfall in mm (current day)",
+    "temperature_c": "Daily mean temperature \u00b0C",
+    "humidity_pct": "Relative humidity % (original)",
+    "relative_humidity_pct": "Relative humidity % (may equal humidity_pct)",
+    "rh_computed": "RH recomputed from dewpoint via Magnus formula",
+    "daily_et_estimate_mm": "Hargreaves-Samani simplified ETo (mm/day)",
+    "soil_moisture_lag1": "Soil moisture at t-1 (previous day)",
+    "soil_moisture_lag2": "Soil moisture at t-2 (two days ago)",
+    "soil_moisture_ma3": "3-day moving average of soil moisture (ending t-1)",
+    "soil_moisture_ma7": "7-day moving average of soil moisture (ending t-1)",
+    "rainfall_lag1": "Rainfall at t-1 (previous day) mm",
+    "rainfall_cum3": "3-day cumulative rainfall (ending t-1) mm",
+    "rainfall_cum7": "7-day cumulative rainfall (ending t-1) mm",
+    "month": "Calendar month (1-12)",
+    "day_of_year": "Day of year (1-365)",
+    "season": "Season code (1=Winter, 2=Summer, 3=SW_Monsoon, 4=NE_Monsoon)"
+  },
+  "target_description": "soil_moisture (0-1 fraction) at t+1 (next day)",
+  "data_note": "All features are computed from demonstration data only. Lag features use t-1 or earlier values only \u2014 no data leakage from t+1.",
+  "metadata": {
+    "total_rows": 5475,
+    "farms": [
+      "TN001",
+      "TN002",
+      "TN003"
+    ],
+    "date_range": {
+      "start": "2019-01-01",
+      "end": "2023-12-30"
+    }
+  }
+}

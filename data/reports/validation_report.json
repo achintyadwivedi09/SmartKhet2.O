@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-11-13T04:19:21.643397Z",
+  "total_records": 5475,
+  "total_features": 16,
+  "target": "soil_moisture_next_day",
+  "farms": [
+    "TN001",
+    "TN002",
+    "TN003"
+  ],
+  "date_range": {
+    "start": "2019-01-01",
+    "end": "2023-12-30"
+  },
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "check": "Target Leakage Prevention",
+      "passed": true,
+      "detail": "Target 'soil_moisture_next_day' is cleanly excluded from feature list."
+    },
+    {
+      "check": "Zero Missing Values in Feature Matrix",
+      "passed": true,
+      "detail": "Total NaNs in features: 0"
+    },
+    {
+      "check": "Zero Missing Values in Target Variable",
+      "passed": true,
+      "detail": "Target NaNs: 0"
+    },
+    {
+      "check": "Soil Moisture (soil_moisture_lag1) Range [0.0, 1.0]",
+      "passed": true,
+      "detail": "Observed range: [0.1000, 0.3651] m\u00b3/m\u00b3"
+    },
+    {
+      "check": "Target 'soil_moisture_next_day' Range [0.0, 1.0]",
+      "passed": true,
+      "detail": "Target range: [0.1000, 0.3491] m\u00b3/m\u00b3"
+    },
+    {
+      "check": "Temperature (temperature_c) Range [5.0, 55.0] \u00b0C",
+      "passed": true,
+      "detail": "Observed range: [18.9, 38.6] \u00b0C"
+    },
+    {
+      "check": "Rainfall Non-negative (>= 0.0 mm)",
+      "passed": true,
+      "detail": "Min rainfall: 0.00 mm"
+    },
+    {
+      "check": "Chronological Monotonicity per Farm",
+      "passed": true,
+      "detail": "Dates are strictly monotonically increasing within each farm partition."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "datasets": [
+    {
+      "dataset_id": "IMD_RF_001",
+      "name": "IMD 0.25\u00b0 Gridded Daily Rainfall",
+      "source_url": "https://imdpune.gov.in/cmpg/Griddata/Rainfall_25_NetCDF.html",
+      "publisher": "India Meteorological Department",
+      "doi": null,
+      "license": "Government of India Open Data License",
+      "variables": ["rainfall_mm"],
+      "units": {"rainfall_mm": "mm/day"},
+      "temporal_coverage": "1901-2024",
+      "spatial_resolution": "0.25 degree",
+      "geographic_coverage": "India",
+      "file_format": "NetCDF",
+      "access_method": "Direct download from IMD Pune portal",
+      "access_note": "Requires registration at IMD portal; manual download required",
+      "validation_status": "documented",
+      "citation": "IMD (2024). Gridded Rainfall Data. India Meteorological Department, Pune."
+    },
+    {
+      "dataset_id": "MOSDAC_SM_001",
+      "name": "ISRO MOSDAC Soil Moisture",
+      "source_url": "https://www.mosdac.gov.in/soil-moisture-0",
+      "publisher": "Space Applications Centre, ISRO",
+      "doi": null,
+      "license": "SAC/ISRO data policy",
+      "variables": ["soil_moisture_index", "soil_wetness_index"],
+      "units": {"soil_moisture_index": "dimensionless (0-1)"},
+      "temporal_coverage": "2015-present",
+      "spatial_resolution": "25 km",
+      "geographic_coverage": "India",
+      "file_format": "NetCDF/HDF5",
+      "access_method": "MOSDAC portal registration required",
+      "access_note": "Free registration at mosdac.gov.in; FTP access after approval",
+      "validation_status": "documented"
+    },
+    {
+      "dataset_id": "ERA5_TH_001",
+      "name": "ERA5-Land Hourly Data",
+      "source_url": "https://cds.climate.copernicus.eu/",
+      "publisher": "ECMWF / Copernicus Climate Change Service",
+      "doi": "10.24381/cds.e2161bac",
+      "license": "Copernicus License v1.2",
+      "variables": ["2m_temperature", "2m_dewpoint_temperature"],
+      "units": {"2m_temperature": "K", "2m_dewpoint_temperature": "K"},
+      "temporal_coverage": "1950-present",
+      "spatial_resolution": "0.1 degree",
+      "geographic_coverage": "Global",
+      "file_format": "NetCDF/GRIB",
+      "access_method": "CDS API (cdsapi Python library)",
+      "access_note": "Free registration at cds.climate.copernicus.eu; API key required",
+      "validation_status": "documented"
+    },
+    {
+      "dataset_id": "KAGGLE_IWD_001",
+      "name": "India Weather Data (Kaggle Supplementary)",
+      "source_url": "https://www.kaggle.com/datasets/redwankarimsony/weather-data-desc",
+      "publisher": "Kaggle community (derived from IMD public data)",
+      "license": "CC0 Public Domain",
+      "variables": ["temp_max", "temp_min", "humidity", "rainfall"],
+      "units": {"temp_max": "C", "temp_min": "C", "humidity": "%", "rainfall": "mm"},
+      "temporal_coverage": "1901-2017",
+      "spatial_resolution": "Station-level",
+      "geographic_coverage": "India (major cities)",
+      "file_format": "CSV",
+      "access_method": "kaggle datasets download",
+      "access_note": "Requires kaggle CLI and API token; supplementary use only",
+      "validation_status": "documented"
+    }
+  ]
+}

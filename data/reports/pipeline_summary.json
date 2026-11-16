@@ -1,0 +1,16 @@
+{
+  "project": "SmartKhet 2.0",
+  "generated_at": "2026-11-13T04:20:07.227251Z",
+  "total_datasets_registered": 4,
+  "validation_status": "PASSED",
+  "total_processed_records": 5475,
+  "model_deployed": "Random Forest Regressor (Soil Moisture)",
+  "model_version": "2.0.0",
+  "test_r2": 0.8722,
+  "test_rmse": 0.0082,
+  "farms_configured": [
+    "TN001 (Thanjavur)",
+    "TN002 (Coimbatore)",
+    "TN003 (Madurai)"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "soil_moisture_lag1": 0.7448,
+  "soil_moisture_ma7": 0.0726,
+  "soil_moisture_ma3": 0.0668,
+  "rainfall_mm": 0.0558,
+  "day_of_year": 0.0192,
+  "rainfall_cum7": 0.008,
+  "temperature_c": 0.0065,
+  "season": 0.0057,
+  "rainfall_cum3": 0.0053,
+  "soil_moisture_lag2": 0.0046,
+  "rainfall_lag1": 0.0038,
+  "relative_humidity_pct": 0.0022,
+  "rh_computed": 0.0022,
+  "humidity_pct": 0.0021,
+  "month": 0.0006,
+  "daily_et_estimate_mm": 0.0
+}

@@ -1,0 +1,75 @@
+{
+  "model_name": "Random Forest Regressor (Soil Moisture)",
+  "model_version": "2.0.0",
+  "training_timestamp": "2026-11-13T04:19:58.394986Z",
+  "dataset_version": "ml_ready_v2.0",
+  "target_variable": "soil_moisture_next_day",
+  "features": [
+    "rainfall_mm",
+    "temperature_c",
+    "humidity_pct",
+    "relative_humidity_pct",
+    "rh_computed",
+    "daily_et_estimate_mm",
+    "soil_moisture_lag1",
+    "soil_moisture_lag2",
+    "soil_moisture_ma3",
+    "soil_moisture_ma7",
+    "rainfall_lag1",
+    "rainfall_cum3",
+    "rainfall_cum7",
+    "month",
+    "day_of_year",
+    "season"
+  ],
+  "split_ratio": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "sample_counts": {
+    "train": 3832,
+    "val": 821,
+    "test": 822,
+    "total": 5475
+  },
+  "hyperparameters": {
+    "n_estimators": 200,
+    "max_depth": 14,
+    "min_samples_split": 5,
+    "min_samples_leaf": 2,
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "metrics": {
+    "baseline": {
+      "mae": 0.0044,
+      "rmse": 0.0103,
+      "r2": 0.7946,
+      "median_ae": 0.0,
+      "sample_size": 822
+    },
+    "random_forest": {
+      "mae": 0.004,
+      "rmse": 0.0082,
+      "r2": 0.8722,
+      "median_ae": 0.0012,
+      "sample_size": 822
+    },
+    "xgboost": {
+      "mae": 0.0042,
+      "rmse": 0.0086,
+      "r2": 0.8582,
+      "median_ae": 0.0013,
+      "sample_size": 822
+    }
+  },
+  "artifacts": {
+    "rf_model": "data/models/rf_model.joblib",
+    "scaler": "data/models/scaler.joblib",
+    "feature_importance": "data/models/feature_importance.json",
+    "plot_actual_vs_predicted": "data/reports/plots/actual_vs_predicted.png",
+    "plot_feature_importance": "data/reports/plots/feature_importance.png",
+    "plot_residuals": "data/reports/plots/residual_distribution.png"
+  }
+}

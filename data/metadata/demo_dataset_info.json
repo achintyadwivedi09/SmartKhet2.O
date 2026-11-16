@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-11-13T04:17:05.747621Z",
+  "script": "03_generate_demo_dataset.py",
+  "data_type": "DEMONSTRATION",
+  "disclaimer": "This dataset is generated using climatological patterns for Tamil Nadu. It is NOT real sensor data and must NOT be presented as such. Every record carries data_source='demonstration_climatological_pattern'.",
+  "geographic_coverage": "Tamil Nadu, India (3 farms)",
+  "temporal_coverage": {
+    "start": "2019-01-01",
+    "end": "2023-12-31",
+    "years": 5
+  },
+  "farms": [
+    "TN001",
+    "TN002",
+    "TN003"
+  ],
+  "farm_details": {
+    "TN001": {
+      "name": "Thanjavur Rice Farm",
+      "crop": "Rice",
+      "lat": 10.787,
+      "lon": 79.139,
+      "soil_field_capacity": 0.42,
+      "soil_wilting_point": 0.14,
+      "init_moisture": 0.38
+    },
+    "TN002": {
+      "name": "Coimbatore Cotton Farm",
+      "crop": "Cotton",
+      "lat": 11.0168,
+      "lon": 76.9558,
+      "soil_field_capacity": 0.35,
+      "soil_wilting_point": 0.12,
+      "init_moisture": 0.28
+    },
+    "TN003": {
+      "name": "Madurai Groundnut Farm",
+      "crop": "Groundnut",
+      "lat": 9.9252,
+      "lon": 78.1198,
+      "soil_field_capacity": 0.3,
+      "soil_wilting_point": 0.1,
+      "init_moisture": 0.22
+    }
+  },
+  "total_records": 5478,
+  "records_per_farm": {
+    "TN001": 1826,
+    "TN002": 1826,
+    "TN003": 1826
+  },
+  "columns": [
+    "date",
+    "farm_id",
+    "farm_name",
+    "crop",
+    "latitude",
+    "longitude",
+    "rainfall_mm",
+    "temperature_c",
+    "humidity_pct",
+    "relative_humidity_pct",
+    "dewpoint_c",
+    "soil_moisture",
+    "season",
+    "data_source",
+    "data_note"
+  ],
+  "soil_moisture_range": {
+    "min": 0.1,
+    "max": 0.3651,
+    "mean": 0.124
+  },
+  "rainfall_stats": {
+    "mean_mm_day": 2.78,
+    "max_mm_day": 99.3,
+    "rain_days_pct": 24.2
+  },
+  "output_file": "data/processed/demo_agricultural_data.csv",
+  "next_step": "Run 04_preprocess.py to validate and preprocess this dataset.",
+  "soil_moisture_model": "SM[t] = SM[t-1] * evaporation_factor + rainfall_effect - et_demand. evaporation_factor depends on temperature and humidity. This is a simplified demonstration model, not a validated physics model.",
+  "monsoon_pattern": {
+    "SW_Monsoon": "June\u2013September (DOY 152-273), moderate rainfall",
+    "NE_Monsoon": "October\u2013November (DOY 274-334), heaviest rainfall for Tamil Nadu",
+    "Winter": "December\u2013February (DOY 1-59, 335-365), low rainfall",
+    "Summer": "March\u2013May (DOY 60-151), sparse rainfall, high evapotranspiration"
+  }
+}

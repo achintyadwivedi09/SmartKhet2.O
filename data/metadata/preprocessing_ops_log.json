@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-11-13T04:18:33.477857Z",
+  "script": "04_preprocess.py",
+  "total_operations": 11,
+  "operations": [
+    {
+      "timestamp": "2026-11-13T04:18:33.317880Z",
+      "operation": "PANDAS_LOAD",
+      "detail": "Loaded 5,478 rows via pandas"
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.325367Z",
+      "operation": "VALIDATE_DTYPES",
+      "detail": "Type validation complete. Rows: 5478 \u2192 5478"
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.326975Z",
+      "operation": "MISSING_VALUES",
+      "detail": "No missing values found"
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.336454Z",
+      "operation": "INTERPOLATE_GAPS",
+      "detail": "Linear interpolation applied (limit=3 days). Filled 0 values. | Method: pandas linear, max gap = 3 days. Longer gaps left as NaN."
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.342079Z",
+      "operation": "REMOVE_DUPLICATES",
+      "detail": "Removed 0 duplicate (farm_id, date) rows. Rows: 5478 \u2192 5478"
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.371116Z",
+      "operation": "DERIVED_RH",
+      "detail": "Computed relative_humidity via Magnus formula from dewpoint and temperature"
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.373479Z",
+      "operation": "DERIVED_ET",
+      "detail": "Computed daily_et_estimate_mm via Hargreaves-Samani simplified ETo"
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.394549Z",
+      "operation": "SAVE_INTERIM",
+      "detail": "Saved 1,826 rows \u2192 data\\interim\\preprocessed_TN001.csv",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.410865Z",
+      "operation": "SAVE_INTERIM",
+      "detail": "Saved 1,826 rows \u2192 data\\interim\\preprocessed_TN002.csv",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.427216Z",
+      "operation": "SAVE_INTERIM",
+      "detail": "Saved 1,826 rows \u2192 data\\interim\\preprocessed_TN003.csv",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-11-13T04:18:33.476875Z",
+      "operation": "SAVE_INTERIM_COMBINED",
+      "detail": "Saved 5,478 rows \u2192 data\\interim\\preprocessed_all_farms.csv",
+      "status": "OK"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartKhet 2.0 — Data Quality & Integrity Report</title>
+<style>
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #F8FAF5; color: #1B2D1E; margin: 0; padding: 24px; }
+  .container { max-width: 1000px; margin: 0 auto; background: #ffffff; padding: 32px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  h1 { color: #2D6A4F; margin-top: 0; }
+  h2 { color: #40916C; border-bottom: 2px solid #D8F3DC; padding-bottom: 8px; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 13px; }
+  .badge-pass { background: #D8F3DC; color: #2D6A4F; }
+  .badge-fail { background: #FFE5D9; color: #D90429; }
+  table { width: 100%; border-collapse: collapse; margin-top: 16px; margin-bottom: 24px; }
+  th, td { text-align: left; padding: 12px; border-bottom: 1px solid #E5E7EB; }
+  th { background: #F0FDF4; color: #2D6A4F; font-weight: 600; }
+  .meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #F9FAFB; padding: 16px; border-radius: 8px; border: 1px solid #E5E7EB; }
+  .card-label { font-size: 12px; color: #6B7280; text-transform: uppercase; }
+  .card-value { font-size: 20px; font-weight: bold; color: #2D6A4F; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🌱 SmartKhet 2.0 — Big Data Quality & Pipeline Audit</h1>
+  <p>Automated verification report for agricultural datasets, preprocessing pipeline, and validation checks.</p>
+  
+  <div class="meta-grid">
+    <div class="card">
+      <div class="card-label">Overall Status</div>
+      <div class="card-value"><span class="badge badge-pass">PASSED</span></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Total Cleaned Records</div>
+      <div class="card-value">5,475</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Active Datasets</div>
+      <div class="card-value">4 Sources</div>
+    </div>
+  </div>
+
+  <h2>1. Dataset Provenance Registry</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Dataset ID</th>
+        <th>Source Name</th>
+        <th>Publisher</th>
+        <th>Format & Coverage</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><strong>IMD_RF_001</strong></td>
+        <td>IMD 0.25° Gridded Daily Rainfall</td>
+        <td>India Meteorological Department</td>
+        <td>NetCDF (1901-2024)</td>
+        <td><span class="badge badge-pass">documented</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>MOSDAC_SM_001</strong></td>
+        <td>ISRO MOSDAC Soil Moisture</td>
+        <td>Space Applications Centre, ISRO</td>
+        <td>NetCDF/HDF5 (2015-present)</td>
+        <td><span class="badge badge-pass">documented</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>ERA5_TH_001</strong></td>
+        <td>ERA5-Land Hourly Data</td>
+        <td>ECMWF / Copernicus Climate Change Service</td>
+        <td>NetCDF/GRIB (1950-present)</td>
+        <td><span class="badge badge-pass">documented</span></td>
+      </tr>
+
+      <tr>
+        <td><strong>KAGGLE_IWD_001</strong></td>
+        <td>India Weather Data (Kaggle Supplementary)</td>
+        <td>Kaggle community (derived from IMD public data)</td>
+        <td>CSV (1901-2017)</td>
+        <td><span class="badge badge-pass">documented</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <h2>2. Automated Pipeline Validation Checks</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Check Description</th>
+        <th>Status</th>
+        <th>Execution Details</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>Target Leakage Prevention</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>Target 'soil_moisture_next_day' is cleanly excluded from feature list.</td>
+      </tr>
+
+      <tr>
+        <td>Zero Missing Values in Feature Matrix</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>Total NaNs in features: 0</td>
+      </tr>
+
+      <tr>
+        <td>Zero Missing Values in Target Variable</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>Target NaNs: 0</td>
+      </tr>
+
+      <tr>
+        <td>Soil Moisture (soil_moisture_lag1) Range [0.0, 1.0]</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>Observed range: [0.1000, 0.3651] m³/m³</td>
+      </tr>
+
+      <tr>
+        <td>Target 'soil_moisture_next_day' Range [0.0, 1.0]</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>Target range: [0.1000, 0.3491] m³/m³</td>
+      </tr>
+
+      <tr>
+        <td>Temperature (temperature_c) Range [5.0, 55.0] °C</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>Observed range: [18.9, 38.6] °C</td>
+      </tr>
+
+      <tr>
+        <td>Rainfall Non-negative (>= 0.0 mm)</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>Min rainfall: 0.00 mm</td>
+      </tr>
+
+      <tr>
+        <td>Chronological Monotonicity per Farm</td>
+        <td><span class="badge badge-pass">PASS</span></td>
+        <td>Dates are strictly monotonically increasing within each farm partition.</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <p style="margin-top: 32px; font-size: 12px; color: #6B7280; text-align: center;">
+    Report automatically compiled by SmartKhet 2.0 Data Quality Engine.
+  </p>
+</div>
+</body>
+</html>
